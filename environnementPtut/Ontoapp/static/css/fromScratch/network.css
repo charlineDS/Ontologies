@@ -1,0 +1,13 @@
+ .size {
+        height: 800px;
+		width: 800px;
+		margin: 0px auto;/* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+ 
+ }
+ .goAway {
+	 display: none;
+ }
+
+

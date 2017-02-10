@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block selectOntoblock %}
+<form method="post" action="../upload/" enctype="multipart/form-data"> {% csrf_token %}
+    <!--<input type="file" name="files" multiple/>
+    !-->
+	<div class="file-field input-field">
+		  <li>
+		  <div class="btn">
+			<span>File</span>
+			<input type="file" name="files" multiple>
+		  </div>
+		  <div class="file-path-wrapper">
+			<input class="file-path validate" type="text" placeholder="Sélectionnez vos fichiers" >
+		  </div>
+		   </li>
+		<li>  
+		<div id="addurl">
+		<div id= "linkUrl0" class="linkU input-field col s6">
+          <i class="material-icons prefix">link</i>
+          <input id="icon_prefix" type="text" name="textLink"class="link">
+          <label for="icon_prefix">URL ontologie</label>
+        </div>
+		</div>
+		</li>
+		<li>
+		<a class="waves-effect waves-light btn"onclick="addURL()" >Ajouter une ontologie</a>
+		
+		<input class="waves-effect waves-light btn" type="submit" value="Upload"/>
+		</li>
+	</div>	
+ 
+{% endblock selectOntoblock %} 

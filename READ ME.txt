@@ -1,0 +1,10 @@
+
+Etapes pour utiliser la solution
+
+1-Pour utiliser la solution, il faut changer le chemin indiqué dans la variable repertoire1 du fichier view.py. Ce fichier est dans le dossier Ontoapp.
+Le chemin doit être absolu pour que la solution fonctionne.
+
+2- Installer python puis Django 1.9.0
+3- Depuis l'invit commande, se positionner dans le dossier OntoProjet et rentrer la commande suivante : python manage.py runserver 0:8000
+Le projet sera ainsi disponible à l'adresse http://127.0.0.1:8000/projet/ dans le naviguateur
+	

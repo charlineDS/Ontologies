@@ -1,0 +1,94 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Ontologies</title>
+        <!--Import Google Icon Font-->
+		<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		
+		 <!--Let browser know website is optimized for mobile-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		
+		<!--JavaScripts Templates/!-->
+		<script src="{% static 'JS/fromLibrairies/jquery-3.1.1.min.js' %}"></script>
+		<script src="{% static 'JS/fromLibrairies/vis.js' %}"></script>
+		<script src="{% static 'JS/fromLibrairies/materialize.min.js' %}"></script>
+		<script src="{% static 'JS/fromScratch/visProjet.js' %}"></script>
+
+		<!--CSS Templates/!-->
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+		<link rel="stylesheet" href="{% static 'metisMenu/metisMenu.min.css' %}">
+		<link rel="stylesheet" href="{% static 'font/css/font-awesome.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/sb-admin-2.css' %}">
+		<link rel="stylesheet" href="{% static 'css/vis-network.min.css' %}">
+		<link rel="stylesheet" href="{% static 'css/fromScratch/network.css' %}">
+		<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+
+<!--<link rel="stylesheet" href="{% static 'style.css' %}">!-->
+
+
+</head>
+<body>
+
+  <!-- row display ontologies -->
+	
+			<div class ="row">
+			{% for key,values in dictionnaire %}
+			<button type="button" class="Button_Onto_{{ forloop.counter0 }} btn btn-primary" onclick="hideVSdiplay({{ forloop.counter0 }}) "style="display: none" >Afficher l'ontologie {{ forloop.counter0 }}<span class="caret"></span></button></span>
+			
+			<!-- row display graph  -->
+			
+				<div id="BlockGlobalOnto{{ forloop.counter0 }}"class="col-lg-{{context}}" >
+				<div class="card data-wow-delay="0.4s">
+				<div class="card-image ">
+					<div id="BlockOnto_{{ forloop.counter0 }}"class="{{T}} img-fluid view  hm-white-slight"  >
+						<!--CSS.js-->
+						
+
+						<!-- /. CSS-->
+						<!--Vis.js-->
+						<script type="text/javascript" >
+									var nodes = {{key|safe}}
+									var edges = {{values|safe}}
+									visnetwork({{ forloop.counter0 }});
+						</script >
+						<!-- /. Vis.js-->
+						</div>
+					<div class="overlay">
+					<span class="card-title">
+					<!--Title-->
+					<button type="button" class="Button_Onto_{{ forloop.counter0 }} btn btn-default " onclick="hideVSdiplay({{ forloop.counter0 }}) " >Masquer l'ontologie {{ forloop.counter0 }}<span class="caret "></span></button>
+					
+					
+				</div>
+				</div>
+				<!--/.Card content-->
+				</div>
+				</div>
+            <!--Card-->
+                   
+			<!-- /. row display graph  -->
+			
+			{% endfor %}
+			
+		</div>
+		<div class="fixed-action-btn">
+			<a href="javascript:history.go(-1)"class="btn-floating btn-large red">
+			  <i class="large material-icons">keyboard_backspace</i>
+			</a>
+			<!--<ul>
+			  <li><a class="btn-floating red large"><i class="material-icons">insert_chart</i></a></li>
+			  <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+			  <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+			  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+			</ul>-->
+		  </div>
+   <!-- /.row display ontologies -->
+ </body>
+ </html>
+ 
